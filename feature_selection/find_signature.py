@@ -4,7 +4,6 @@ import pickle
 import numpy
 numpy.random.seed(42)
 
-
 ### The words (features) and authors (labels), already largely processed.
 ### These files should have been created from the previous (Lesson 10)
 ### mini-project.
@@ -12,8 +11,6 @@ words_file = "../text_learning/your_word_data.pkl"
 authors_file = "../text_learning/your_email_authors.pkl"
 word_data = pickle.load( open(words_file, "r"))
 authors = pickle.load( open(authors_file, "r") )
-
-
 
 ### test_size is the percentage of events assigned to the test set (the
 ### remainder go into training)
@@ -28,16 +25,21 @@ vectorizer = TfidfVectorizer(sublinear_tf=True, max_df=0.5,
 features_train = vectorizer.fit_transform(features_train)
 features_test  = vectorizer.transform(features_test).toarray()
 
-
 ### a classic way to overfit is to use a small number
 ### of data points and a large number of features;
 ### train on only 150 events to put ourselves in this regime
 features_train = features_train[:150].toarray()
 labels_train   = labels_train[:150]
 
-
-
 ### your code goes here
-
-
-
+from sklearn.tree import DecisionTreeClassifier
+clf = DecisionTreeClassifier()
+clf.fit(features_train, labels_train)
+imp_features = clf.feature_importances_.tolist()
+feature_imp = filter(lambda x: x > 0.2, imp_features)
+print "Important Features = ", feature_imp
+print "Most important feature = ", feature_imp[0]
+print "Index of most important feature = ", imp_features.index(feature_imp[0])
+#print "Number of training points = ", len(features_train)
+print "Classifier accuracy = ", clf.score(features_test, labels_test)
+print "Most important word => ", vectorizer.get_feature_names()[imp_features.index(feature_imp[0])]

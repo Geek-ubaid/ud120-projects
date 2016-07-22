@@ -2,6 +2,7 @@
 
 from nltk.stem.snowball import SnowballStemmer
 import string
+import re
 
 def parseOutText(f):
     """ given an opened email file f, parse out all text below the
@@ -15,8 +16,6 @@ def parseOutText(f):
         text = parseOutText(f)
         
         """
-
-
     f.seek(0)  ### go back to beginning of file (annoying)
     all_text = f.read()
 
@@ -33,16 +32,12 @@ def parseOutText(f):
         ### space between each stemmed word)
         stemmer = SnowballStemmer("english")                
         words = re.sub('([\n\t\b]+|[ ]{2,})', ' ', ' '.join(map(stemmer.stem, filter(lambda x: len(x) > 0, text_string.split()))))
-    return words
-
-    
+    return words    
 
 def main():
     ff = open("../text_learning/test_email.txt", "r")
     text = parseOutText(ff)
     print text
-
-
 
 if __name__ == '__main__':
     main()

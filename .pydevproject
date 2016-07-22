@@ -2,4 +2,21 @@
 <?eclipse-pydev version="1.0"?><pydev_project>
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">Default</pydev_property>
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">python 2.7</pydev_property>
+<pydev_pathproperty name="org.python.pydev.PROJECT_SOURCE_PATH">
+<path>/${PROJECT_DIR_NAME}/validation</path>
+<path>/${PROJECT_DIR_NAME}/choose_your_own</path>
+<path>/${PROJECT_DIR_NAME}/datasets_questions</path>
+<path>/${PROJECT_DIR_NAME}/decision_tree</path>
+<path>/${PROJECT_DIR_NAME}/evaluation</path>
+<path>/${PROJECT_DIR_NAME}/feature_selection</path>
+<path>/${PROJECT_DIR_NAME}/final_project</path>
+<path>/${PROJECT_DIR_NAME}/k_means</path>
+<path>/${PROJECT_DIR_NAME}/naive_bayes</path>
+<path>/${PROJECT_DIR_NAME}/outliers</path>
+<path>/${PROJECT_DIR_NAME}/pca</path>
+<path>/${PROJECT_DIR_NAME}/regression</path>
+<path>/${PROJECT_DIR_NAME}/svm</path>
+<path>/${PROJECT_DIR_NAME}/text_learning</path>
+<path>/${PROJECT_DIR_NAME}/tools</path>
+</pydev_pathproperty>
 </pydev_project>
